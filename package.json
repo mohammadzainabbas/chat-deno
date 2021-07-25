@@ -1,0 +1,20 @@
+{
+  "name": "chat-deno",
+  "version": "1.0.0",
+  "description": "A chat app with deno",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "deno test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadzainabbas/chat-deno.git"
+  },
+  "keywords": ["chat-app", "deno"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammadzainabbas/chat-deno/issues"
+  },
+  "homepage": "https://github.com/mohammadzainabbas/chat-deno#readme"
+}
