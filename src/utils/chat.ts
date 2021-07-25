@@ -12,7 +12,7 @@ const broadcast = (message: string, senderId?: string): void => {
 	}
 };
 
-export const chat = (ws: WebSocket): Promise<void> => {
+export const chat = async (ws: WebSocket): Promise<void> => {
 	const userId = v4?.generate();
 
 	users.set(userId, ws);
