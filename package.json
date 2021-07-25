@@ -1,0 +1,28 @@
+{
+  "name": "chat-deno",
+  "version": "1.0.0",
+  "description": "A chat app with deno",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "deno run --allow-net --allow-read src/index.ts",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "test": "deno test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadzainabbas/chat-deno.git"
+  },
+  "keywords": [
+    "chat-app",
+    "deno"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammadzainabbas/chat-deno/issues"
+  },
+  "homepage": "https://github.com/mohammadzainabbas/chat-deno#readme",
+  "dependencies": {
+    "prettier": "^2.3.2"
+  }
+}
