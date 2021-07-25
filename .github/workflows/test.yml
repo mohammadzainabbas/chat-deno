@@ -1,0 +1,33 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+	path-ignore:
+	  - "**.md"
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        architecture:
+          - x64
+
+    steps:
+	
+      - name: Checkout current repo
+        uses: actions/checkout@v2
+
+      - name: Setup Deno on ${{ matrix.os }}
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Check version
+        run: deno --version
