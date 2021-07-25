@@ -4,6 +4,7 @@
   "description": "A chat app with deno",
   "main": "src/index.ts",
   "scripts": {
+    "start": "deno run src/index.ts",
     "test": "deno test"
   },
   "repository": {
