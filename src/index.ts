@@ -13,7 +13,7 @@ listenAndServe(options, async (req) => {
 			headers: new Headers({
 				'content-type': 'text/html',
 			}),
-			body: await Deno.open('./index.html'),
+			body: await Deno.open('public/index.html'),
 		});
 	}
 
