@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>💬 Chat </title>
+</head>
+<body>
+
+    <div id="app" />
+
+    <script type="module">
+
+        const { useState, useEffect, html, render } from "https://unpkg.com/htm/preact/standalone.module.js"
+
+        let ws;
+
+        const Chat = () => {
+
+            const [messages, setMessages] = useState(null)
+
+            const onReceiveMessage = ({ data }) => setMessages(m => ([...m, data]))
+
+            const onSendMessage = (e) => {
+                e.preventDefault();
+                const message = e?.target[0]?.value;
+                ws.send(message)
+                e.target[0].value = "";
+            }
+
+            useEffect(() => {
+                if (ws) {
+                    ws.close()
+                }
+                ws = new WebSocket(`ws://${window?.location?.host}/ws`)
+                ws.addEventListener("message", onReceiveMessage)
+                
+                return () => ws.removeEventListener("message", onReceiveMessage)
+
+            }, [])
+
+            return html`
+            ${messages.map(message => html`
+                <div>${message}</div>
+            `)}
+            <form onSubmit=${onSendMessage}>
+            <input type="text" />
+            <button>Send</button>
+            </form>
+            `
+        }
+
+        render(html`<${Chat} />`, document.getElementById("app"))
+
+    </script>
+</body>
+</html>
