@@ -1,4 +1,4 @@
-import { camelCase } from './deps';
+import { camelCase } from './deps.ts';
 
 /**
  * Return the text in camelCase + how many 🐪

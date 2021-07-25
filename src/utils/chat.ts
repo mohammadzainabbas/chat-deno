@@ -1,6 +1,6 @@
 import { WebSocket, isWebSocketCloseEvent } from 'https://deno.land/std/ws/mod.ts';
 import { v4 } from 'https://deno.land/std/uuid/mod.ts';
-import { camelize } from './camelize';
+import { camelize } from './camelize.ts';
 
 const users = new Map<string, WebSocket>();
 
